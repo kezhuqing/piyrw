@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒋雨婷，加油！</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+            transition: background-image 0.5s ease;
+        }
+        #content {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        p {
+            font-size: 1.5em;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #ff69b4;
+        }
+    </style>
+</head>
+<body id="body">
+    <div id="content">
+        <h1>蒋雨婷，加油！</h1>
+        <p>你是无与伦比的，无论什么挑战在你面前，你都有勇气面对！</p>
+        <p>放下焦虑，相信自己，你比想象中更强大！</p>
+        <p>我们一直在支持你，加油！</p>
+
+        <!-- 背景切换按钮 -->
+        <div>
+            <button class="button" onclick="changeBackground(1)">阳光海滩</button>
+            <button class="button" onclick="changeBackground(2)">星空夜景</button>
+            <button class="button" onclick="changeBackground(3)">清新绿野</button>
+        </div>
+
+        <!-- 音乐选择按钮 -->
+        <div>
+            <button class="button" onclick="playMusic('song1')">轻快音乐</button>
+            <button class="button" onclick="playMusic('song2')">舒缓音乐</button>
+            <button class="button" onclick="playMusic('song3')">动感音乐</button>
+        </div>
+    </div>
+
+    <!-- 音乐 -->
+    <audio id="audio" loop>
+        <source id="audioSource" src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" type="audio/mpeg">
+        你的浏览器不支持音频标签。
+    </audio>
+
+    <script>
+        // 背景图片 URLs
+        const backgrounds = {
+            1: "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')",
+            2: "url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa')",
+            3: "url('https://images.unsplash.com/photo-1473773508845-188df298d2d1')"
+        };
+
+        // 切换背景图片
+        function changeBackground(option) {
+            document.getElementById("body").style.backgroundImage = backgrounds[option];
+        }
+
+        // 音乐 URLs
+        const songs = {
+            'song1': "https://www.bensound.com/bensound-music/bensound-ukulele.mp3",
+            'song2': "https://www.bensound.com/bensound-music/bensound-creativeminds.mp3",
+            'song3': "https://www.bensound.com/bensound-music/bensound-energy.mp3"
+        };
+
+        // 播放选择的音乐
+        function playMusic(song) {
+            const audio = document.getElementById("audio");
+            document.getElementById("audioSource").src = songs[song];
+            audio.load();
+            audio.play();
+        }
+
+        // 页面初始背景
+        changeBackground(1);
+    </script>
+</body>
+</html>
